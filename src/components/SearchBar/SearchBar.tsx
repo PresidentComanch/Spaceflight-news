@@ -1,36 +1,53 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../app/hooks";
 import { getQuery, setSearchQuery } from "../../features/articles/articlesSlice";
 
-// function debounce(f: (event: React.ChangeEvent<HTMLInputElement>) => void, delay: number) {
-//   let timerId: number | NodeJS.Timeout;
+import { InputAdornment, TextField } from "@mui/material";
+import SearchIcon from '@mui/icons-material/Search';
 
-//   return (...args: any[]) => {
-//     clearTimeout(timerId);
+function debounce(f: (query: string) => void, delay: NodeJS.Timeout) {
+  let timer: NodeJS.Timeout;
 
-//     timerId = setTimeout(f, delay, ...args)
-//   };
-// }
+  return (...args: any[]) => {
+    clearTimeout(timer);
+
+    timer = setTimeout(f, delay, ...args)
+  };
+}
 
 const SearchBar: React.FC = () => {
-  const queryFromStore = useSelector(getQuery);
   const dispatch = useAppDispatch();
+  const [query, setQuery] = useState('');
 
-  const inputQueryHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(setSearchQuery(event.currentTarget.value));
-  }
+  const dispatchQuery = (query: string) => {
+    dispatch(setSearchQuery(query));
+  };
 
-  // const debouncedInputQueryHandler = debounce(inputQueryHandler, 5000)
+  const debounceDispatchQuery = useCallback( 
+    debounce(dispatchQuery, 300), []
+  );
 
   return (
     <>
-      <input
-        name=''
-        type="text"
-        value={queryFromStore}
-        onChange={inputQueryHandler}
-      />
+      <TextField
+        placeholder='Search'
+        variant='outlined'
+        fullWidth
+        type='search'
+        value={query}
+        onChange={(event) => {
+          setQuery(event.currentTarget.value);
+          debounceDispatchQuery(event.currentTarget.value);
+        }}
+        InputProps={{
+          startAdornment: (
+          <InputAdornment position="start">
+            <SearchIcon />
+          </InputAdornment>
+        )}}
+        sx={{ width: '600px', mb: '40px' }}
+        />
     </>
   );
 }

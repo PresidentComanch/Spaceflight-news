@@ -6,6 +6,7 @@ import SearchBar from '../SearchBar/SearchBar'
 import { Article } from "../../types/interfaceArticle";
 import { fetchAsyncArticles } from "../../features/articles/articlesSlice";
 import { useAppDispatch } from "../../app/hooks";
+import { Container, Grid } from "@mui/material";
 
 const ArticleListing: React.FC = () => {
   const articlesList = useSelector(getAllArticles);
@@ -23,15 +24,16 @@ const ArticleListing: React.FC = () => {
 
   return (
     <>
-    <SearchBar />
-      <div>
-        {queryFromStore}
-        {
-          articlesList.map((article: Article) => (
-            <ArticleCard key={article.id} data={article} />
-          ))
-        }
-      </div>
+    <Container>
+      <SearchBar />
+        <Grid container spacing={2}>
+          {
+            articlesList.map((article: Article) => (
+              <ArticleCard key={article.id} data={article} />
+            ))
+          }
+        </Grid>
+      </Container>
     </>
   );
 }

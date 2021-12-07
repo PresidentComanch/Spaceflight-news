@@ -6,7 +6,6 @@ import ArticleListing from "../ArticlesListing/ArticleListing";
 const Home = () => {
   return (
   <div>
-    <h1>Homepage</h1>
     <ArticleListing />
   </div>
   );
