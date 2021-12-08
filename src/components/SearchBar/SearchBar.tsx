@@ -1,9 +1,10 @@
 import React, { useCallback, useState } from "react";
 import { useSelector } from "react-redux";
+
 import { useAppDispatch } from "../../app/hooks";
 import { getQuery, setSearchQuery } from "../../features/articles/articlesSlice";
 
-import { InputAdornment, TextField } from "@mui/material";
+import { Divider, InputAdornment, TextField, Typography } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 
 function debounce(f: (query: string) => void, delay: NodeJS.Timeout) {
@@ -30,6 +31,13 @@ const SearchBar: React.FC = () => {
 
   return (
     <>
+      <Typography
+        variant="button"
+        display="block"
+        gutterBottom sx={{ fontWeight: 600 }}
+      >
+        Filter by keywords
+      </Typography>
       <TextField
         placeholder='Search'
         variant='outlined'
@@ -46,8 +54,13 @@ const SearchBar: React.FC = () => {
             <SearchIcon />
           </InputAdornment>
         )}}
-        sx={{ width: '600px', mb: '40px' }}
-        />
+        sx={{
+          maxWidth: '600px',
+          mb: '40px',
+          boxShadow: '0px 8px 24px rgba(0, 0, 0, 0.05)' ,
+          borderRadius: '5px'
+        }}
+      />
     </>
   );
 }

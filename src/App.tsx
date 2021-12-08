@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
-import './App.scss';
+
 import ArticlePage from './components/ArticlePage/ArticlePage';
 import Home from './components/Home/Home';
 import PageNotFound from './components/PageNotFound/PageNotFound';

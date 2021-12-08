@@ -1,12 +1,13 @@
 import React from "react";
-import { Article } from "../../types/interfaceArticle";
-import './articleCard.scss';
-import moment from "moment";
 import { Link } from "react-router-dom";
-import { Button, Card, CardActions, CardContent, CardMedia, Grid, Stack, Typography } from "@mui/material";
-import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
+
 import { useAppSelector } from "../../app/hooks";
+import { Article } from "../../types/interfaceArticle";
 import { getQuery } from "../../features/articles/articlesSlice";
+import moment from "moment";
+
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Stack, Typography } from "@mui/material";
+import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 
 type Props = {
   data: Article;
@@ -22,7 +23,7 @@ const ArticleCard: React.FC<Props> = ({ data }) => {
       match =>
         `<mark style="background: yellow;">${match}</mark>`
     );
-  }
+  };
 
   let newTitle = title;
   let newBody = summary;
@@ -35,62 +36,65 @@ const ArticleCard: React.FC<Props> = ({ data }) => {
   const datePrepared = moment(publishedAt).format("MMM Do, YYYY");
 
   return (
-    <Grid item xs='12' md='4'>
+    <Grid item xs={12} md={4}>
       <Card
-        sx={{ height: '100%' }}
+        sx={{
+          border: '1px solid #EAEAEA' ,
+          boxShadow: '0px 8px 24px rgba(0, 0, 0, 0.05)' ,
+          minHeight: '530px' ,
+        }}
       >
-        <CardMedia
-          image={imageUrl}
-          alt={title}
-          title={title}
-          sx={{ height: 217 }}
-        />
-        <CardContent>
-          <Stack direction="row" spacing={2}>
-            <CalendarTodayOutlinedIcon />
-            <Typography variant="overline" display="block" gutterBottom>
-              {datePrepared}
-            </Typography>
-          </Stack>
-          <Typography variant='h6' component='h3' dangerouslySetInnerHTML={{ __html: newTitle }} />
-          <Typography variant='body1' dangerouslySetInnerHTML={{ __html: newBody.substring(0, 97) + '...' }} />
-        </CardContent>
-        <CardActions>
-            <Button
-              component={Link}
-              to={`/article/${id}`}
-              sx={{ textDecoration: 'none' }}
-            >
-              <Typography variant="button" display="block" gutterBottom>
-                Read more &rarr;
+        <CardActionArea
+          component={Link}
+          to={`/article/${id}`}
+        >
+          <CardMedia
+            component="img"
+            image={imageUrl}
+            alt={title}
+            title={title}
+            sx={{ height: 217 }}
+          />
+          <CardContent
+            sx={{ padding: 3 }}
+          >
+            <Stack
+              direction="row"
+              alignItems="center"
+              spacing={1}
+              sx={{ mb: 3 }}
+              >
+              <CalendarTodayOutlinedIcon sx={{ fontSize: 14 }} />
+              <Typography
+                variant="subtitle2"
+                display="block"
+                color="text.secondary"
+                gutterBottom
+              >
+                {datePrepared}
               </Typography>
-            </Button>
-        </CardActions>
+            </Stack>
+            <Typography
+              variant='h5'
+              sx={{ mb: '20px' }}
+              dangerouslySetInnerHTML={{ __html: newTitle }}
+            />
+            <Typography
+              variant='body1'
+              dangerouslySetInnerHTML={{ __html: newBody.substring(0, 97) + '...' }}
+              sx={{ mb: '20px' }}
+            />
+            <Typography
+              variant="button"
+              display="block"
+              gutterBottom sx={{ fontWeight: 'bold' }}
+            >
+              Read more &rarr;
+            </Typography>
+          </CardContent>
+        </CardActionArea>
       </Card>
     </Grid>
-
-    // <div className='ArticleCard'>
-    //   <div className='ArticleCard__img-container'>
-    //     <img src={imageUrl} alt={title} className='ArticleCard__image' />
-    //   </div>
-    //   <div className='ArticleCard__article-container'>
-    //     <div className='ArticleCard__date-block'>
-    //       <img src={calendarIcon} alt="calendar-icon" className='ArticleCard__calendar-icon' />
-    //       <span className='ArticleCard__date'>{datePrepared}</span>
-    //     </div>
-    //     <article>
-    //       <h2 className='ArticleCard__title'>
-    //         {title}
-    //       </h2>
-    //       <p className='ArticleCard__text'>{textPrepared}</p>
-    //     </article>
-    //     <div className='ArticleCard__link-container'>
-    //       <Link to={`/article/${id}`} className='ArticleCard__link'>
-    //           Read more &rarr;
-    //       </Link>
-    //     </div>
-    //   </div>
-    // </div>
   );
 }
 

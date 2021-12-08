@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { fetchAsyncFilteredArticles, getAllArticles, getQuery } from "../../features/articles/articlesSlice";
+
 import ArticleCard from "../ArcticleCard/ArticleCard";
 import SearchBar from '../SearchBar/SearchBar'
-import { Article } from "../../types/interfaceArticle";
-import { fetchAsyncArticles } from "../../features/articles/articlesSlice";
+
 import { useAppDispatch } from "../../app/hooks";
-import { Container, Grid } from "@mui/material";
+import { fetchAsyncArticles, fetchAsyncFilteredArticles, getAllArticles, getQuery } from "../../features/articles/articlesSlice";
+import { Article } from "../../types/interfaceArticle";
+
+import { Container, Divider, Grid, Typography } from "@mui/material";
 
 const ArticleListing: React.FC = () => {
   const articlesList = useSelector(getAllArticles);
@@ -24,9 +26,28 @@ const ArticleListing: React.FC = () => {
 
   return (
     <>
-    <Container>
-      <SearchBar />
-        <Grid container spacing={2}>
+      <Container
+        sx={{
+          mt : '50px',
+          mb: 8 ,
+          maxWidth:'1290px'
+        }}
+        maxWidth={false}
+      >
+        <SearchBar />
+        <Typography
+          variant="button"
+          display="block"
+          gutterBottom sx={{ fontWeight: 600 }}
+        >
+          Results: {articlesList.length}
+        </Typography>
+        <Divider />
+        <Grid
+          container
+          spacing={6}
+          sx={{ pt: '45px'}}
+        >
           {
             articlesList.map((article: Article) => (
               <ArticleCard key={article.id} data={article} />
