@@ -1,4 +1,4 @@
-# Single Page Application with React.
+# Single Page Application with Typescript React Redux Router Material-UI
 
 [DEMO](https://presidentcomanch.github.io/Spaceflight-news/)
 
