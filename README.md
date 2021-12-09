@@ -1,6 +1,6 @@
 # Single Page Application with React.
 
-[DEMO](https://presidentcomanch.github.io/codebridge-test-task/)
+[DEMO](https://presidentcomanch.github.io/Spaceflight-news/)
 
 The following Figma low-fidelity prototype should be used as a basis: [link](http://url9962.codebridge.tech/ls/click?upn=-2FvC57-2FMAHhWp1AHf776h8ElBOsgL-2FFWKIV-2BROL2MfW11aZGYorUXE-2Fxw3gpmlKsSlBmYMZT9m7ZQWq-2BY-2BerG0yOKrzyR3b3mF2FQrYT-2Ff1RvRe584Z-2Fk9NvQxym-2FaNm-2B71QF_i75O1e91SdcqlIWG3MHcl08AHOFVhU2KGUsF-2BCed9f1vukI784mUqOmSeKPhZ5wFbUccxjwfDs-2BIjoADUB8VSgnKkrqwUpfga4OvdFb1dY-2Bh9JKHIazRAgSBbZEYQxuTDhkLzKeZnFB7CpZ4NAiIfdU7uVWMD-2BlVxZcGLekDc1NcoSngaJi1TU5YtPO5dR5PPGsyxJreuY8nZhj9HIOWlEw3vO71KDqaumtEdU82rbMkUWetufXuJkOpTdn8qaE-2Fc6m5HpjgRgB0SlZ-2BaYYdQSXyuPuW9aOwSJOcQJtdyWkofyAyvFv-2BB9Y4HS43trudZCc4ufMxXt7W4FNeXBDyoNlML-2BQS0KJ6rxgJ0-2FrbprA-3D).
 
