@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/Spaceflight-news/static/js/main.a5b04055.chunk.js",
+    "main.js.map": "/Spaceflight-news/static/js/main.a5b04055.chunk.js.map",
+    "runtime-main.js": "/Spaceflight-news/static/js/runtime-main.de2a6583.js",
+    "runtime-main.js.map": "/Spaceflight-news/static/js/runtime-main.de2a6583.js.map",
+    "static/js/2.f03a90f5.chunk.js": "/Spaceflight-news/static/js/2.f03a90f5.chunk.js",
+    "static/js/2.f03a90f5.chunk.js.map": "/Spaceflight-news/static/js/2.f03a90f5.chunk.js.map",
+    "index.html": "/Spaceflight-news/index.html",
+    "static/js/2.f03a90f5.chunk.js.LICENSE.txt": "/Spaceflight-news/static/js/2.f03a90f5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.de2a6583.js",
+    "static/js/2.f03a90f5.chunk.js",
+    "static/js/main.a5b04055.chunk.js"
+  ]
+}
