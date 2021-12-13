@@ -7,7 +7,7 @@ import { getQuery, setSearchQuery } from "../../features/articles/articlesSlice"
 import { Divider, InputAdornment, TextField, Typography } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 
-function debounce(f: (query: string) => void, delay: NodeJS.Timeout) {
+function debounce(f: { (query: string): void; (...args: any[]): void; }, delay: number) {
   let timer: NodeJS.Timeout;
 
   return (...args: any[]) => {

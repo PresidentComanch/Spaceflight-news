@@ -56,7 +56,7 @@ const ArticlePage: React.FC = () => {
           <Typography
             variant="button"
             display="block"
-            gutterBottom sx={{ fontWeight: 600 }}
+            gutterBottom sx={{ fontWeight: 600, color: 'black' }}
             color='primary'
           >
             &larr; Back to homepage
